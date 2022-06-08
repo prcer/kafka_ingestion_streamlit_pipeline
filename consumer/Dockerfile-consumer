@@ -1,0 +1,6 @@
+FROM python:3.8
+ADD code /opt/science
+ADD requirements.txt /opt/science
+RUN pip install -r /opt/science/requirements.txt
+CMD ["/opt/science/consumer.py"]
+ENTRYPOINT ["python"]

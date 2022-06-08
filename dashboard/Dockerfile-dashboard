@@ -1,0 +1,9 @@
+FROM python:3.10.4
+ADD code /opt/science
+ADD requirements.txt /opt/science
+RUN pip install -r /opt/science/requirements.txt && \
+    apt-get update && apt-get install apt-file -y && \
+    apt-file update && apt-get install vim -y
+EXPOSE 8501
+# Sleep 4min before starting dashboard app
+CMD sleep 240 && streamlit run /opt/science/dashboard.py --mapbox.token ""

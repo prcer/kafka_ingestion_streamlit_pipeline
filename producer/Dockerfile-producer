@@ -1,0 +1,6 @@
+FROM alpine:3.14
+RUN apk add --update curl && \
+    apk add --update bash && \
+    rm -rf /var/cache/apk/*
+ADD code /opt/science
+CMD ["/opt/science/ingest_data.sh"]
