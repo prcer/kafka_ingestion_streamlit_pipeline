@@ -1,7 +1,6 @@
 # Instructions and flow description
 - Have docker and docker-compose installed in the local machine.
-- Download CSV dataset at https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitione
-rs/medicare-physician-other-practitioners-by-provider-and-service and put it inside the folder `producer/data/unprocessed` (file name is not important).
+- Download CSV dataset at https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitioners/medicare-physician-other-practitioners-by-provider-and-service and put it inside the folder `producer/data/unprocessed` (file name is not important).
 - Run project using: `docker-compose up` from project root folder.
 - After all images are built, project will start running by setting Kafka infrastructure. Ingestion starts at the 2 min mark from `producer` container by launching a script that triggers spooldir connector in `connect` container.
 - Navigate to Confluent Kafka Control Center (http://localhost:9021/) to check ingested messages to the `science` topic. When the entire dataset is loaded into kafka, the CSV file is going to be moved to `producer/data/processed`.
